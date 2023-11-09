@@ -35,7 +35,11 @@ function RegistrationForm({ role }: RegistrationFormData) {
 
 	function formatDate(date: dayjs.Dayjs | null) {
 		if (date) {
-			console.log(date.format('DD/MM/YYYY'));
+			const dateFormat = date.format('DD/MM/YYYY');
+			setRegisterData({
+				...registerData,
+				dateBirth: dateFormat,
+			});
 		}
 	}
 

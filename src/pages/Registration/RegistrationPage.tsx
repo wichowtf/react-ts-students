@@ -14,12 +14,7 @@ function Registration() {
 		}
 	}, []);
 
-	return (
-		<div>
-			registrationPage
-			{parms.role && <RegistrationForm role={parms.role} />}
-		</div>
-	);
+	return <div>{parms.role && <RegistrationForm role={parms.role} />}</div>;
 }
 
 export default Registration;
