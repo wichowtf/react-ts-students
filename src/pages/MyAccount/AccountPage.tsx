@@ -33,10 +33,13 @@ function AccountPage({ loggedUser, loader }: accountPageProps) {
 		navigate('change-password');
 	}
 
+	function goToTrainings() {
+		navigate('trainings');
+	}
+
 	return (
 		<div className='account-container'>
 			<Loading active={loader} />
-			{/* <Link to='change-passord'>change password</Link> */}
 			<p className='account-title'>My Account</p>
 			<div className='info-columns'>
 				<div className='profile-info'>
@@ -110,6 +113,7 @@ function AccountPage({ loggedUser, loader }: accountPageProps) {
 				styles={{ marginBottom: '36px' }}
 				type={true}
 				disabled={false}
+				clicHandle={goToTrainings}
 			/>
 		</div>
 	);

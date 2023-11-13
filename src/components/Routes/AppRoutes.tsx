@@ -8,6 +8,7 @@ import Layout from '../../layout/Layout';
 import LoginPage from '../../pages/Login/LoginPage';
 import Registration from '../../pages/Registration/RegistrationPage';
 import BlogPage from 'src/pages/Blog/BlogPage';
+import TrainingPage from 'src/pages/Training/TrainingsPage';
 
 interface authStoredData {
 	token: string;
@@ -39,6 +40,10 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
 					<Route
 						path='account/change-password'
 						element={<ChangePasswordPage loggedUser={currentUser} />}
+					/>
+					<Route
+						path='account/trainings'
+						element={<TrainingPage loggedUser={currentUser} />}
 					/>
 				</Route>
 				<Route path='login' element={<LoginPage loader={stateLoading} />} />
