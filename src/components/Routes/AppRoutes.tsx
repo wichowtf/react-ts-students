@@ -1,12 +1,13 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import PrivateRoutes from './components/PrivateRoute/PrivateRoute';
-import HomePage from './pages/Home/HomePage';
-import AccountPage from './pages/MyAccount/AccountPage';
-import ChangePasswordPage from './pages/ChangePassword/ChangepPasswordPage';
-import Layout from './layout/Layout';
-import LoginPage from './pages/Login/LoginPage';
-import Registration from './pages/Registration/RegistrationPage';
+import PrivateRoutes from '../PrivateRoute/PrivateRoute';
+import HomePage from '../../pages/Home/HomePage';
+import AccountPage from '../../pages/MyAccount/AccountPage';
+import ChangePasswordPage from '../../pages/ChangePassword/ChangepPasswordPage';
+import Layout from '../../layout/Layout';
+import LoginPage from '../../pages/Login/LoginPage';
+import Registration from '../../pages/Registration/RegistrationPage';
+import BlogPage from 'src/pages/Blog/BlogPage';
 
 interface authStoredData {
 	token: string;
@@ -45,7 +46,9 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
 					path='registration/:role'
 					element={<Registration loader={stateLoading} />}
 				/>
+				<Route path='blog' element={<BlogPage />} />
 				<Route path='/*' element={<Navigate to='/registration/student' />} />
+				<Route path='/' element={<Navigate to='login' />} />
 			</Route>
 		</Routes>
 	);

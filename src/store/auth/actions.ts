@@ -4,12 +4,17 @@ import {
 	loginData,
 	CombinedFormData,
 } from '../../utils/authTypes';
-import { loginRequest, registerRequest } from 'src/services/authServices';
+import {
+	/* loginRequest,
+	registerRequest, */
+	postApiRequest,
+} from 'src/services/authServices';
 
 export const loginAction = (loginRequestData: loginData) => {
 	return async (dispatch: Dispatch<UserActionTypes>) => {
 		dispatch({ type: 'FETCH_LOGIN_REQUEST' });
-		loginRequest(loginRequestData)
+		/* loginRequest(loginRequestData) */
+		postApiRequest(loginRequestData, 'auth')
 			.then((data) => {
 				const aux = {
 					token: data.token,
@@ -32,7 +37,8 @@ export const loginAction = (loginRequestData: loginData) => {
 export const registerAction = (registerRequestData: CombinedFormData) => {
 	return async (dispatch: Dispatch) => {
 		dispatch({ type: 'FETCH_LOGIN_REQUEST' });
-		registerRequest(registerRequestData)
+		/* registerRequest(registerRequestData) */
+		postApiRequest(registerRequestData, 'auth/register')
 			.then((data) => {
 				const aux = {
 					token: data.token,
@@ -51,3 +57,7 @@ export const registerAction = (registerRequestData: CombinedFormData) => {
 			});
 	};
 };
+
+export const handleLogout = () => ({
+	type: 'HANDLE_LOGOUT',
+});

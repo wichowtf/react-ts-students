@@ -4,9 +4,10 @@
   right: -300px; /* Inicialmente oculto fuera del borde derecho */
   width: 300px;
   height: 100%;
-  background-color: #d1d1d1;
+  background-color: #ffffff;
   color: #fff;
   transition: right 0.3s ease; /* Transición suave de la propiedad right */
+  padding-top: 64px;
 }
 
 .sidebar.open {

@@ -15,6 +15,10 @@ interface FetchUsersRequestAction {
 	type: 'FETCH_LOGIN_REQUEST';
 }
 
+interface HandleLogout {
+	type: 'HANDLE_LOGOUT';
+}
+
 interface FetchUsersSuccessAction {
 	type: 'FETCH_LOGIN_SUCCESS';
 	payload: { token: string; email: string };
@@ -31,6 +35,7 @@ interface FetchRegisterSuccessAction {
 }
 
 export type UserActionTypes =
+	| HandleLogout
 	| FetchUsersRequestAction
 	| FetchUsersSuccessAction
 	| FetchUsersFailureAction

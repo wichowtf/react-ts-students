@@ -27,6 +27,7 @@
 .menuH{
   display: flex;
   flex-direction: row;
+  align-items: center;
   list-style-type: none;
   padding: 0;
   margin-left: 40px;
@@ -47,4 +48,12 @@
 .menu-logo-header{
   display: flex;
   flex-direction: row;
+}
+
+.authButtons{
+  display: flex;
+  flex-direction: row;
+}
+a{
+  text-decoration: none;
 }

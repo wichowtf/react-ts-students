@@ -13,7 +13,7 @@ interface ButtonProps {
 function Button(props: ButtonProps) {
 	return (
 		<button
-			className={props.type ? 'default-button' : 'default-button'}
+			className={props.type ? 'default-button' : 'type-button'}
 			onClick={props.clicHandle}
 			disabled={props.disabled}
 			style={props.styles}

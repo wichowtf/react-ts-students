@@ -1,6 +1,9 @@
 import { getUserInterface, actionData } from 'src/utils/userTypes';
+
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export const getUserRequest = (getUserInfo: getUserInterface) => {
-	return fetch('http://localhost:4000/api/users/' + getUserInfo.email, {
+	return fetch(apiUrl + 'users/' + getUserInfo.email, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
@@ -15,7 +18,7 @@ export const getUserRequest = (getUserInfo: getUserInterface) => {
 };
 
 export const updateUserPasswordRequest = (updatePasswordData: actionData) => {
-	return fetch('http://localhost:4000/api/users/' + updatePasswordData.email, {
+	return fetch(apiUrl + 'users/' + updatePasswordData.email, {
 		method: 'PUT',
 		body: JSON.stringify(updatePasswordData.body),
 		headers: {

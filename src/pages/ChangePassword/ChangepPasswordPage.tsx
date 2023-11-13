@@ -38,7 +38,6 @@ function ChangePasswordPage({ loggedUser }: accountPageProps) {
 			token: loggedUser.token,
 		};
 		dispatch(updateUserPasswordAction(auxData));
-		console.log(passwordData);
 	}
 
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

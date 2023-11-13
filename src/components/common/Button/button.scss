@@ -28,3 +28,28 @@
 .default-button:disabled {
   opacity: 0.4; 
 }
+
+.type-button{
+  height: 36px; 
+  padding: 0 12px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-family: Poppins; /* Body */
+  font-size: 14px; 
+  font-weight: 400; 
+  line-height: 22px; 
+  color: #6355D8FF; /* primary-500 */
+  background: #00000000; /* transparent */
+  opacity: 1; 
+  border: none; 
+  border-radius: 6px;
+}
+.type-button:hover{
+  color: #6355D8FF; /* primary-500 */
+  background: #E1DFF8FF;
+}
+.type-button:hover:active{
+  color: #6355D8FF; /* primary-500 */
+  background: #CFCBF3FF;
+}

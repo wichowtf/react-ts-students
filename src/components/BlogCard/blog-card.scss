@@ -1,0 +1,28 @@
+.card-container{
+  display: flex;
+  flex-direction: column;
+  width: 376px; 
+  height: 410px; 
+  background: #FFFFFFFF; /* white */
+  border-radius: 8px; /* border-l */
+  border-width: 1px; 
+  border-color: #BCC1CAFF; /* neutral-400 */
+  border-style: solid; 
+}
+.blog-subtitle{
+  font-family: Poppins; /* Body */
+  font-size: 16px; 
+  font-weight: 400; 
+  line-height: 26px; 
+  color: #6355D8FF;
+}
+.blog-title{
+  font-family: Montserrat; /* Heading */
+  font-size: 24px; 
+  font-weight: 700; 
+  line-height: 36px; 
+  color: #171A1FFF;
+}
+.blog-info{
+  padding: 16px;
+}

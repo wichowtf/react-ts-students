@@ -34,6 +34,8 @@ const authReducer = (state = initialState, action: UserActionTypes) => {
 				user: { token: action.payload.token, email: action.payload.email },
 				error: null,
 			};
+		case 'HANDLE_LOGOUT':
+			return initialState;
 		default:
 			return state;
 	}

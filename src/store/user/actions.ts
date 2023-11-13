@@ -25,7 +25,6 @@ export const getUserAction = (getUserRequestData: getUserInterface) => {
 };
 
 export const updateUserPasswordAction = (updatePasswordData: actionData) => {
-	console.log('newpass action', updatePasswordData);
 	return async (dispatch: Dispatch) => {
 		dispatch({ type: 'FETCH_USER_REQUEST' });
 		updateUserPasswordRequest(updatePasswordData)

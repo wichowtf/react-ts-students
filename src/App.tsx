@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import AppRoutes from './AppRoutes';
+import AppRoutes from './components/Routes/AppRoutes';
 
 import './App.scss';
 

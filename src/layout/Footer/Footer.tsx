@@ -11,10 +11,34 @@ function Footer() {
 					<img className='logoH' src={Logo} alt='Logo' />
 				</div>
 				<nav className='footer-nav'>
-					<div className='col-footer'>col</div>
-					<div className='col-footer'>col</div>
-					<div className='col-footer'>col</div>
-					<div className='col-footer'>col</div>
+					<div className='col-footer'>
+						<p className='col-title'>Product</p>
+						<ul className='col-item'>
+							<li>Features</li>
+							<li>Pricing</li>
+						</ul>
+					</div>
+					<div className='col-footer'>
+						<p className='col-title'>Resourses</p>
+						<ul className='col-item'>
+							<li>Blog</li>
+							<li>Webinar</li>
+						</ul>
+					</div>
+					<div className='col-footer'>
+						<p className='col-title'>Company</p>
+						<ul className='col-item'>
+							<li>About us</li>
+							<li>Contact us</li>
+						</ul>
+					</div>
+					<div className='col-footer'>
+						<p className='col-title'>Product</p>
+						<ul className='col-item'>
+							<li>Features</li>
+							<li>Pricing</li>
+						</ul>
+					</div>
 				</nav>
 			</div>
 			<div className='socond-menu'></div>
