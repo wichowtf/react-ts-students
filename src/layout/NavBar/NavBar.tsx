@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './nav-bar.scss';
 
@@ -14,6 +15,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 				&times;
 			</button>
 			<ul>
+				<li>
+					<Link to='account'>Account</Link>
+				</li>
 				<li>Item 1</li>
 				<li>Item 2</li>
 				<li>Item 3</li>

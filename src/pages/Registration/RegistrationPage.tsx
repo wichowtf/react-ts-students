@@ -9,7 +9,6 @@ function Registration() {
 
 	useEffect(() => {
 		if (parms.role !== 'student' && parms.role !== 'trainer') {
-			console.log(parms, 'entroif');
 			navigate('registration/student', { replace: true });
 		}
 	}, []);

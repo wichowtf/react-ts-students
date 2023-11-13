@@ -1,24 +1,27 @@
 import React, { FormEvent, useState, ChangeEvent } from 'react';
-
+//redux
+import { useDispatch } from 'react-redux';
+import { loginAction } from 'src/store/auth/actions';
+//components
 import Input from '../common/Input/Input';
 import Button from '../common/Button/Button';
+//types
+import { loginData /* , UserActionTypes */ } from 'src/utils/authTypes';
 
 import './login-form.scss';
 
-interface FormData {
-	email: string;
-	password: string;
-}
-
 function LoginForm() {
-	const [loginData, setLoginData] = useState<FormData>({
+	const [loginData, setLoginData] = useState<loginData>({
 		email: '',
 		password: '',
 	});
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const dispatch = useDispatch<any>();
+
 	function handleButtonClick(event: FormEvent) {
 		event.preventDefault();
-		console.log(loginData);
+		dispatch(loginAction(loginData));
 	}
 
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
