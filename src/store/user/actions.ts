@@ -7,7 +7,7 @@ import { getUserInterface, actionData } from '../../utils/userTypes';
 
 export const getUserAction = (getUserRequestData: getUserInterface) => {
 	return async (dispatch: Dispatch) => {
-		/* dispatch({ type: 'FETCH_LOGIN_REQUEST' }); */
+		dispatch({ type: 'FETCH_USER_REQUEST' });
 		getUserRequest(getUserRequestData)
 			.then((data) => {
 				dispatch({
@@ -27,7 +27,7 @@ export const getUserAction = (getUserRequestData: getUserInterface) => {
 export const updateUserPasswordAction = (updatePasswordData: actionData) => {
 	console.log('newpass action', updatePasswordData);
 	return async (dispatch: Dispatch) => {
-		/* dispatch({ type: 'FETCH_LOGIN_REQUEST' }); */
+		dispatch({ type: 'FETCH_USER_REQUEST' });
 		updateUserPasswordRequest(updatePasswordData)
 			.then((data) => {
 				dispatch({
@@ -37,7 +37,7 @@ export const updateUserPasswordAction = (updatePasswordData: actionData) => {
 			})
 			.catch((error) => {
 				dispatch({
-					type: 'UPDATE_USER_FAILURE',
+					type: 'GET_USER_FAILURE',
 					payload: error.message,
 				});
 			});

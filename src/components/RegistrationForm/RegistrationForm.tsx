@@ -15,7 +15,7 @@ import { StudentFormData, TrainerFormData } from 'src/utils/authTypes';
 import './registration-form.scss';
 
 interface RegistrationFormData {
-	role: string;
+	role: string | undefined;
 }
 
 function RegistrationForm({ role }: RegistrationFormData) {
@@ -78,95 +78,145 @@ function RegistrationForm({ role }: RegistrationFormData) {
 		if (role === 'student') {
 			return (
 				<LocalizationProvider dateAdapter={AdapterDayjs}>
-					student
 					<form onSubmit={handleButtonClick} className='register-form'>
-						Register Form
-						<Input
-							placeholder='First name'
-							handleChange={handleChange}
-							val={registerData.name}
-							type='text'
-							name='name'
+						<div className='form-inputs'>
+							<p className='input-title'>First name</p>
+							<Input
+								placeholder='First name'
+								handleChange={handleChange}
+								val={registerData.name}
+								type='text'
+								name='name'
+								styles={{ marginBottom: '16px' }}
+							/>
+
+							<p className='input-title'>Last name</p>
+							<Input
+								placeholder='Last name'
+								handleChange={handleChange}
+								val={registerData.lastName}
+								type='text'
+								name='lastName'
+								styles={{ marginBottom: '16px' }}
+							/>
+
+							<p className='input-title'>Address</p>
+							<Input
+								placeholder='Address'
+								handleChange={handleChange}
+								val={registerData.address}
+								type='text'
+								name='address'
+								styles={{ marginBottom: '16px' }}
+							/>
+
+							<div>
+								<p className='input-title'>Date of birth</p>
+								<DatePicker
+									onChange={(newValue: dayjs.Dayjs | null) => {
+										formatDate(newValue);
+									}}
+								/>
+							</div>
+
+							<p className='input-title'>Email</p>
+							<Input
+								placeholder='Email'
+								handleChange={handleChange}
+								val={registerData.email}
+								type='email'
+								name='email'
+								styles={{ marginBottom: '16px', marginTop: '16px' }}
+							/>
+							<p className='input-title'>Password</p>
+							<Input
+								placeholder='Password'
+								handleChange={handleChange}
+								val={registerData.password}
+								type='password'
+								name='password'
+								styles={{ marginBottom: '16px' }}
+							/>
+						</div>
+						<Button
+							buttonText='Register'
+							type={true}
+							disabled={
+								registerData.name.length < 4 ||
+								registerData.lastName.length < 4 ||
+								registerData.email.length < 4 ||
+								registerData.password.length < 4
+							}
 						/>
-						<Input
-							placeholder='Last name'
-							handleChange={handleChange}
-							val={registerData.lastName}
-							type='text'
-							name='lastName'
-						/>
-						<Input
-							placeholder='Address'
-							handleChange={handleChange}
-							val={registerData.address}
-							type='text'
-							name='address'
-						/>
-						<DatePicker
-							onChange={(newValue: dayjs.Dayjs | null) => {
-								formatDate(newValue);
-							}}
-						/>
-						<Input
-							placeholder='Email'
-							handleChange={handleChange}
-							val={registerData.email}
-							type='email'
-							name='email'
-						/>
-						<Input
-							placeholder='Password'
-							handleChange={handleChange}
-							val={registerData.password}
-							type='password'
-							name='password'
-						/>
-						<Button buttonText='Register' type={true} disabled={false} />
 					</form>
 				</LocalizationProvider>
 			);
 		} else if (role === 'trainer') {
 			return (
 				<div>
-					tariner
 					<form onSubmit={handleButtonClick} className='register-form'>
-						Register Form
-						<Input
-							placeholder='First name'
-							handleChange={handleChange}
-							val={registerDataT.name}
-							type='text'
-							name='name'
+						<div className='form-inputs'>
+							<p className='input-title'>First name</p>
+							<Input
+								placeholder='First name'
+								handleChange={handleChange}
+								val={registerDataT.name}
+								type='text'
+								name='name'
+								styles={{ marginBottom: '16px' }}
+							/>
+
+							<p className='input-title'>Last name</p>
+							<Input
+								placeholder='Last name'
+								handleChange={handleChange}
+								val={registerDataT.lastName}
+								type='text'
+								name='lastName'
+								styles={{ marginBottom: '16px' }}
+							/>
+
+							<p className='input-title'>Specialization</p>
+							<Input
+								placeholder='Specialization'
+								handleChange={handleChange}
+								val={registerDataT.specialization}
+								type='text'
+								name='specialization'
+								styles={{ marginBottom: '16px' }}
+							/>
+
+							<p className='input-title'>Email</p>
+							<Input
+								placeholder='Email'
+								handleChange={handleChange}
+								val={registerDataT.email}
+								type='email'
+								name='email'
+								styles={{ marginBottom: '16px' }}
+							/>
+
+							<p className='input-title'>Password</p>
+							<Input
+								placeholder='Password'
+								handleChange={handleChange}
+								val={registerDataT.password}
+								type='password'
+								name='password'
+								styles={{ marginBottom: '16px' }}
+							/>
+						</div>
+						<Button
+							buttonText='Register'
+							type={true}
+							disabled={
+								registerDataT.name.length < 4 ||
+								registerDataT.lastName.length < 4 ||
+								registerDataT.email.length < 4 ||
+								registerDataT.password.length < 4 ||
+								registerDataT.specialization.length < 2
+							}
 						/>
-						<Input
-							placeholder='Last name'
-							handleChange={handleChange}
-							val={registerDataT.lastName}
-							type='text'
-							name='lastName'
-						/>
-						<Input
-							placeholder='Specialization'
-							handleChange={handleChange}
-							val={registerDataT.specialization}
-							type='text'
-							name='specialization'
-						/>
-						<Input
-							placeholder='Email'
-							handleChange={handleChange}
-							val={registerDataT.email}
-							type='email'
-							name='email'
-						/>
-						<Input
-							placeholder='Password'
-							handleChange={handleChange}
-							val={registerDataT.password}
-							type='password'
-							name='password'
-						/>
-						<Button buttonText='Register' type={true} disabled={false} />
 					</form>
 				</div>
 			);

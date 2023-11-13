@@ -15,6 +15,14 @@ export interface storedUser {
 	};
 }
 
+interface FetchUserAction {
+	type: 'FETCH_USER_REQUEST';
+}
+
+interface FetchUserUpdateSuccessAction {
+	type: 'UPDATE_USER_SUCCESS';
+}
+
 interface FetchUserSuccessAction {
 	type: 'GET_USER_SUCCESS';
 	payload: storedUser;
@@ -26,6 +34,8 @@ interface FetchUserFailureAction {
 }
 
 export type GetUserActionTypes =
+	| FetchUserUpdateSuccessAction
+	| FetchUserAction
 	| FetchUserSuccessAction
 	| FetchUserFailureAction;
 

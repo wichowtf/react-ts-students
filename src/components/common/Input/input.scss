@@ -1,0 +1,25 @@
+.default-input{
+  width: 335px; 
+  height: 44px; 
+  padding-left: 16px; 
+  padding-right: 16px; 
+  font-family: Poppins; /* Body */
+  font-size: 16px; 
+  font-weight: 400; 
+  line-height: 26px; 
+  background: #F3F4F6FF; /* neutral-200 */
+  border-radius: 6px; /* border-m */
+  border-width: 1px;
+  border-color: transparent;
+  outline: none;
+}
+.default-input:hover{
+  color: #BCC1CAFF; /* neutral-400 */
+  background: #F3F4F6FF;
+}
+.default-input:focus{
+  color: #171A1FFF; /* neutral-900 */
+  background: #FFFFFFFF; /* white */
+  border-width: 1px;
+  border-color: #6355D8FF;
+}

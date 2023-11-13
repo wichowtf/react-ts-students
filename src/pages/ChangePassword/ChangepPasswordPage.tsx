@@ -6,6 +6,8 @@ import { updateUserPasswordAction } from 'src/store/user/actions';
 import Input from 'src/components/common/Input/Input';
 import Button from 'src/components/common/Button/Button';
 
+import './change-password.scss';
+
 interface accountPageProps {
 	loggedUser: { token: string; email: string };
 }
@@ -47,31 +49,48 @@ function ChangePasswordPage({ loggedUser }: accountPageProps) {
 		});
 	};
 	return (
-		<form onSubmit={handleButtonClick}>
-			changePassword page
-			<Input
-				placeholder='Old password'
-				handleChange={handleChange}
-				val={passwordData.oldPassword}
-				type='text'
-				name='oldPassword'
-			/>
-			<Input
-				placeholder='New Password'
-				type='text'
-				handleChange={handleChange}
-				val={passwordData.newPassword}
-				name='newPassword'
-			/>
-			<Input
-				placeholder='Confirm new password'
-				type='text'
-				handleChange={handleChange}
-				val={passwordData.newPasswordConfirm}
-				name='newPasswordConfirm'
-			/>
-			<Button buttonText='Login' type={true} disabled={false} />
-		</form>
+		<div className='page-container'>
+			<p className='title'>Security</p>
+
+			<p className='subtitle-change'>Change Password</p>
+			<div>
+				<form onSubmit={handleButtonClick} className='form-container'>
+					<Input
+						placeholder='Old password'
+						handleChange={handleChange}
+						val={passwordData.oldPassword}
+						type='text'
+						name='oldPassword'
+						styles={{ marginBottom: '18px' }}
+					/>
+					<Input
+						placeholder='New Password'
+						type='text'
+						handleChange={handleChange}
+						val={passwordData.newPassword}
+						name='newPassword'
+						styles={{ marginBottom: '18px' }}
+					/>
+					<Input
+						placeholder='Confirm new password'
+						type='text'
+						handleChange={handleChange}
+						val={passwordData.newPasswordConfirm}
+						name='newPasswordConfirm'
+						styles={{ marginBottom: '18px' }}
+					/>
+					<Button
+						buttonText='Login'
+						type={true}
+						disabled={
+							passwordData.oldPassword == '' ||
+							passwordData.newPassword !== passwordData.newPasswordConfirm ||
+							passwordData.newPasswordConfirm.length < 6
+						}
+					/>
+				</form>
+			</div>
+		</div>
 	);
 }
 

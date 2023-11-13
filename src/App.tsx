@@ -1,16 +1,7 @@
 import React, { useEffect } from 'react';
-//router
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
-//store
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-//pages
-import Layout from './layout/Layout';
-import PrivateRoutes from './components/PrivateRoute/PrivateRoute';
-import LoginPage from './pages/Login/LoginPage';
-import Registration from './pages/Registration/RegistrationPage';
-import HomePage from './pages/Home/HomePage';
-import AccountPage from './pages/MyAccount/AccountPage';
-import ChangePasswordPage from './pages/ChangePassword/ChangepPasswordPage';
+import AppRoutes from './AppRoutes';
 
 import './App.scss';
 
@@ -23,6 +14,18 @@ interface storedUser {
 	};
 }
 
+interface storedloading {
+	auth: {
+		loading: boolean;
+	};
+}
+
+interface storedLoadingUser {
+	user: {
+		loading: boolean;
+	};
+}
+
 function App() {
 	const currentUser = useSelector((state: storedUser) => state.auth.user);
 	const navigate = useNavigate();
@@ -32,28 +35,21 @@ function App() {
 		}
 	}, [currentUser]);
 
+	const stateLoading = useSelector(
+		(state: storedloading) => state.auth.loading
+	);
+
+	const stateUserLoading = useSelector(
+		(state: storedLoadingUser) => state.user.loading
+	);
+
 	return (
 		<div className='App'>
-			<Routes>
-				<Route path='/' element={<Layout />}>
-					<Route
-						element={<PrivateRoutes isAuth={currentUser ? true : false} />}
-					>
-						<Route path='home' element={<HomePage />}></Route>
-						<Route
-							path='account'
-							element={<AccountPage loggedUser={currentUser} />}
-						></Route>
-						<Route
-							path='account/change-passord'
-							element={<ChangePasswordPage loggedUser={currentUser} />}
-						></Route>
-					</Route>
-					<Route path='login' element={<LoginPage />} />
-					<Route path='registration/:role' element={<Registration />} />
-					<Route path='/*' element={<Navigate to='/registration/student' />} />
-				</Route>
-			</Routes>
+			<AppRoutes
+				currentUser={currentUser}
+				stateUserLoading={stateUserLoading}
+				stateLoading={stateLoading}
+			/>
 		</div>
 	);
 }

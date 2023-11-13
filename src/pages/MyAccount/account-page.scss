@@ -1,0 +1,73 @@
+.account-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: calc(100vh - 450px);
+  margin-top: 48px;
+}
+.account-title{
+  font-family: Montserrat; /* Heading */
+  font-size: 56px; 
+  font-weight: 700; 
+  line-height: 78px; 
+  color: #171A1FFF;
+}
+.info-columns{
+  display: flex;
+  flex-direction: row;
+  margin-top: 80px;
+}
+.profile-title{
+  font-family: Montserrat; /* Heading */
+  font-size: 32px; 
+  font-weight: 700; 
+  line-height: 48px; 
+  color: #171A1FFF;
+}
+.info-title{
+  font-size: 16px; 
+  font-weight: 700; 
+  line-height: 24px; 
+  margin-bottom: 2px;
+  margin-top: 16px;
+}
+.profile-info{
+  display: flex;
+  flex-direction: column;
+}
+.avatar-img{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 27px;
+  margin-bottom: 43px;
+}
+.buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 932px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+.edit-btns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  max-width: 932px;
+  width: 100%;
+}
+.trainings-desc{
+  width: 650px; 
+  font-family: Poppins; /* Body */
+  font-size: 16px; 
+  font-weight: 400; 
+  line-height: 26px; 
+  color: #171A1FFF; 
+  margin-top: 48px;
+  margin-bottom: 46px;
+  text-align: center;
+}

@@ -6,7 +6,7 @@ import { loginAction } from 'src/store/auth/actions';
 import Input from '../common/Input/Input';
 import Button from '../common/Button/Button';
 //types
-import { loginData /* , UserActionTypes */ } from 'src/utils/authTypes';
+import { loginData } from 'src/utils/authTypes';
 
 import './login-form.scss';
 
@@ -34,22 +34,34 @@ function LoginForm() {
 
 	return (
 		<form onSubmit={handleButtonClick} className='login-form'>
-			LoginForm
-			<Input
-				placeholder='Email'
-				handleChange={handleChange}
-				val={loginData.email}
-				type='email'
-				name='email'
+			<p className='title-text'>Singn In</p>
+			<p className='subtitle-text'>Welcome back</p>
+			<div>
+				<p className='input-title'>User email:</p>
+				<Input
+					placeholder='Email'
+					handleChange={handleChange}
+					val={loginData.email}
+					type='email'
+					name='email'
+					styles={{ marginBottom: '16px' }}
+				/>
+				<p className='input-title'>Password:</p>
+				<Input
+					placeholder='Password'
+					type='password'
+					handleChange={handleChange}
+					val={loginData.password}
+					name='password'
+					styles={{ marginBottom: '16px' }}
+				/>
+			</div>
+
+			<Button
+				buttonText='Login'
+				type={true}
+				disabled={loginData.email.length < 4 || loginData.password.length < 6}
 			/>
-			<Input
-				placeholder='Password'
-				type='password'
-				handleChange={handleChange}
-				val={loginData.password}
-				name='password'
-			/>
-			<Button buttonText='Login' type={true} disabled={false} />
 		</form>
 	);
 }

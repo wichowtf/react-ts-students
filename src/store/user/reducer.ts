@@ -13,6 +13,11 @@ const initialState = {
 };
 const userReducer = (state = initialState, action: GetUserActionTypes) => {
 	switch (action.type) {
+		case 'FETCH_USER_REQUEST':
+			return {
+				...state,
+				loading: true,
+			};
 		case 'GET_USER_SUCCESS':
 			return {
 				...state,
@@ -23,13 +28,25 @@ const userReducer = (state = initialState, action: GetUserActionTypes) => {
 				email: action.payload.user.email,
 				role: action.payload.user.role,
 				specialization: action.payload.user.specialization,
+				loading: false,
 			};
 		case 'GET_USER_FAILURE':
 			return {
 				...state,
 				user: initialState.user,
 				error: action.payload,
+				loading: false,
 			};
+		case 'UPDATE_USER_SUCCESS':
+			return {
+				...state,
+				loading: false,
+			};
+		/* case 'UPDATE_USER_FAILURE':
+				return {
+					...state,
+					loading: false,
+				} */
 		default:
 			return state;
 	}
